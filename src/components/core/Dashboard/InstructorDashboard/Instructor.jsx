@@ -81,6 +81,7 @@ const Instructor = () => {
                         <div>
                             <img 
                                 src={course.thumbnail}
+                                alt='Thumbnail'
                             />
                             <div>
                                 <p>{course.courseName}</p>

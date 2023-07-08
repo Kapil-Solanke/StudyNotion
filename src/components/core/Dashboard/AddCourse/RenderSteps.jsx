@@ -26,7 +26,7 @@ export default function RenderSteps() {
 
   return (
     <>
-      <div className="relative mb-2 flex w-full justify-center">
+      <div className="relative mb-2 flex max-w-full justify-center">
         {steps.map((item) => (
           <>
             <div
@@ -34,7 +34,7 @@ export default function RenderSteps() {
               key={item.id}
             >
               <button
-                className={`grid cursor-default aspect-square w-[34px] place-items-center rounded-full border-[1px] ${
+                className={`grid cursor-default aspect-square w-[34px]  place-items-center rounded-full border-[1px] ${
                   step === item.id
                     ? "border-yellow-50 bg-yellow-900 text-yellow-50"
                     : "border-richblack-700 bg-richblack-800 text-richblack-300"
@@ -51,7 +51,7 @@ export default function RenderSteps() {
             {item.id !== steps.length && (
               <>
                 <div
-                  className={`h-[calc(34px/2)] w-[33%]  border-dashed border-b-2 ${
+                  className={`h-[calc(34px/2)] sm:w-[33%] max-sm:w-[80%]  border-dashed border-b-2 ${
                   step > item.id  ? "border-yellow-50" : "border-richblack-500"
                 } `}
                 ></div>
@@ -65,7 +65,7 @@ export default function RenderSteps() {
         {steps.map((item) => (
           <>
             <div
-              className="flex min-w-[130px] flex-col items-center gap-y-2"
+              className="flex sm:min-w-[130px] max-sm:w-full flex-col items-center gap-y-2"
               key={item.id}
             >
               

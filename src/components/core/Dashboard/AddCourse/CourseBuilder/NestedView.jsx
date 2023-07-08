@@ -61,7 +61,7 @@ export default function NestedView({ handleChangeEditSectionName }) {
           <details key={section._id} open>
             {/* Section Dropdown Content */}
             <summary className="flex cursor-pointer items-center justify-between border-b-2 border-b-richblack-600 py-2">
-              <div className="flex items-center gap-x-3">
+              <div className="flex items-center sm:gap-x-3 max-sm:gap-x-1">
                 <RxDropdownMenu className="text-2xl text-richblack-50" />
                 <p className="font-semibold text-richblack-50">
                   {section.sectionName}
@@ -96,8 +96,8 @@ export default function NestedView({ handleChangeEditSectionName }) {
                 <AiFillCaretDown className={`text-xl text-richblack-300`} />
               </div>
             </summary>
-            <div className="px-6 pb-4">
               {/* Render All Sub Sections Within a Section */}
+            <div className="px-6 pb-4">
               {section.subSection.map((data) => (
                 <div
                   key={data?._id}

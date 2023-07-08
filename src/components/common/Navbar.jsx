@@ -102,8 +102,8 @@ const Navbar = () => {
                         <IoIosArrowDropdownCircle />
                       </div>
                       {/* overlapping tab */}
-                      <div className="absolute invisible left-[43%] top-[43px] h-6 w-6 bg-richblack-700 rotate-45 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100 "></div>
-                      <div className="invisible absolute z-10  left-[33%] top-14 flex flex-col rounded-md bg-richblack-700 p-4 text-richblack-900 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100 w-[230px] ">
+                      <div className="absolute invisible  left-[43%] top-[43px] h-6 w-6 bg-richblack-700 rotate-45 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100 "></div>
+                      <div className="invisible absolute max-[400px]:w-[150px] z-10  left-[33%] top-[50px] flex flex-col rounded-md bg-richblack-700 p-4 text-richblack-900 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100 w-[230px] ">
                         <div className="flex flex-col gap-2 text-richblack-300">
                           {subLinks.length ? (
                             subLinks.map((link, index) => {

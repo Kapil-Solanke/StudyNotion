@@ -35,7 +35,6 @@ export default function CourseBuilderForm() {
   const onSubmit = async (data) => {
     // console.log(data)
     setLoading(true)
-
     let result
 
     if (editSectionName) {
@@ -91,7 +90,7 @@ export default function CourseBuilderForm() {
       toast.error("Please add atleast one lecture in each section")
       return
     }
-    dispatch(setStep(3))
+    dispatch(setStep(3))  
   }
 
   const goBack = () => {

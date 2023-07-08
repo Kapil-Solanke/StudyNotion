@@ -5,7 +5,7 @@ import ContactUsForm from "../../ContactPage/ContactUsForm";
 const ContactFormSection = () => {
   
   return (
-    <div className='mx-auto'>
+    <div className='mx-auto max-sm:w-full max-sm:p-2'>
       <div className="flex mb-3 flex-col gap-2">
       <div className=" text-center font-bold text-3xl">
         Get in Touch

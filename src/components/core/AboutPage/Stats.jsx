@@ -12,7 +12,7 @@ const StatsComponent = () => {
   return (
     <section>
         <div className='mt-5'>
-            <div className='flex border-b-2 bg-richblack-800 border-b-richblack-700 justify-center items-center py-20 px-32 gap-10'>
+            <div className='flex max-[400px]:flex-col border-b-2 bg-richblack-800 border-b-richblack-700 justify-center items-center py-20 px-32 gap-10'>
                 {
                     Stats.map( (data, index) => {
                         return (
