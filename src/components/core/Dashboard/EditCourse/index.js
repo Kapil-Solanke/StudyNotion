@@ -17,7 +17,7 @@ export default function EditCourse() {
   const { token } = useSelector((state) => state.auth)
 
   useEffect(() => {
-    ;(async () => {
+    const getCourse=async () => {
       setLoading(true)
       const result = await getFullDetailsOfCourse(courseId, token)
       if (result?.courseDetails) {
@@ -25,7 +25,8 @@ export default function EditCourse() {
         dispatch(setCourse(result?.courseDetails))
       }
       setLoading(false)
-    })()
+    }
+    getCourse()
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
