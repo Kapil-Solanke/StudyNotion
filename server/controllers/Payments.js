@@ -84,7 +84,7 @@ exports.verifyPayment = async(req, res) => {
         .digest("hex");
 
         if(expectedSignature === razorpay_signature) {
-            //enroll karwao student ko
+            //enroll student in courses
             await enrollStudents(courses, userId, res);
             //return res
             return res.status(200).json({success:true, message:"Payment Verified"});
@@ -126,7 +126,7 @@ const enrollStudents = async(courses, userId, res) => {
                 courseProgress: courseProgress._id,
             }},{new:true})
             
-        ///bachhe ko mail send kardo
+        //send mail to student
         const emailResponse = await mailSender(
             enrollStudents.email,
             `Successfully Enrolled into ${enrolledCourse.courseName}`,
@@ -152,7 +152,7 @@ exports.sendPaymentSuccessEmail = async(req, res) => {
     }
 
     try{
-        //student ko dhundo
+        //find student data
         const enrolledStudent = await User.findById(userId);
         await mailSender(
             enrolledStudent.email,
@@ -163,7 +163,7 @@ exports.sendPaymentSuccessEmail = async(req, res) => {
     }
     catch(error) {
         // console.log("error in sending mail", error)
-        return res.status(500).json({success:false, message:"Could not send email"})
+        return res.status(500).json({success:false, message:"Could not send email after payment"})
     }
 }
 
