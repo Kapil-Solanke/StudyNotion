@@ -7,34 +7,54 @@ const { convertSecondsToDuration } = require("../utils/secToDuration");
 // Method for updating a profile
 exports.updateProfile = async (req, res) => {
 	try {
-		const { dateOfBirth = "", about = "", contactNumber } = req.body;
-		const id = req.user.id;
-
-		// Find the profile by id
-		const userDetails = await User.findById(id);
-		const profile = await Profile.findById(userDetails.additionalDetails);
-
-		// Update the profile fields
-		profile.dateOfBirth = dateOfBirth;
-		profile.about = about;
-		profile.contactNumber = contactNumber;
-
-		// Save the updated profile
-		await profile.save();
-
-		return res.json({
-			success: true,
-			message: "Profile updated successfully",
-			profile,
-		});
+	  const {
+		firstName = "",
+		lastName = "",
+		dateOfBirth = "",
+		about = "",
+		contactNumber = "",
+		gender = "",
+	  } = req.body
+	  const id = req.user.id
+  
+	  // Find the profile by id
+	  const userDetails = await User.findById(id)
+	  const profile = await Profile.findById(userDetails.additionalDetails)
+  
+	  const user = await User.findByIdAndUpdate(id, {
+		firstName,
+		lastName,
+	  })
+	  await user.save()
+  
+	  // Update the profile fields
+	  profile.dateOfBirth = dateOfBirth
+	  profile.about = about
+	  profile.contactNumber = contactNumber
+	  profile.gender = gender
+  
+	  // Save the updated profile
+	  await profile.save()
+  
+	  // Find the updated user details
+	  const updatedUserDetails = await User.findById(id)
+		.populate("additionalDetails")
+		.exec()
+  
+	  return res.json({
+		success: true,
+		message: "Profile updated successfully",
+		updatedUserDetails,
+	  })
 	} catch (error) {
-		// console.log(error);
-		return res.status(500).json({
-			success: false,
-			error: error.message,
-		});
+	  console.log(error)
+	  return res.status(500).json({
+		success: false,
+		error: error.message,
+	  })
 	}
-};
+  }
+  
 
 exports.deleteAccount = async (req, res) => {
 	try {
@@ -43,7 +63,7 @@ exports.deleteAccount = async (req, res) => {
 		// 	console.log("The answer to life, the universe, and everything!");
 		// });
 		// console.log(job);
-		// console.log("Printing ID: ", req.user.id);
+		console.log("Printing ID: ", req.user.id);
 		const id = req.user.id;
 		
 		const user = await User.findById({ _id: id });
@@ -63,7 +83,7 @@ exports.deleteAccount = async (req, res) => {
 			message: "User deleted successfully",
 		});
 	} catch (error) {
-		// console.log(error);
+		console.log(error);
 		res
 			.status(500)
 			.json({ success: false, message: "User Cannot be deleted successfully" });
@@ -76,7 +96,7 @@ exports.getAllUserDetails = async (req, res) => {
 		const userDetails = await User.findById(id)
 			.populate("additionalDetails")
 			.exec();
-		// console.log(userDetails);
+		console.log(userDetails);
 		res.status(200).json({
 			success: true,
 			message: "User Data fetched successfully",
@@ -100,7 +120,7 @@ exports.updateDisplayPicture = async (req, res) => {
         1000,
         1000
       )
-    //   console.log(image)
+      console.log(image)
       const updatedProfile = await User.findByIdAndUpdate(
         { _id: userId },
         { image: image.secure_url },
@@ -209,7 +229,7 @@ exports.instructorDashboard = async(req, res) => {
 
 	}
 	catch(error) {
-		// console.error(error);
+		console.error(error);
 		res.status(500).json({message:"Internal Server Error"});
 	}
 }
