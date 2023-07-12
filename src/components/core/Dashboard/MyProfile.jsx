@@ -11,7 +11,7 @@ export default function MyProfile() {
 
   return (
     <>
-      <h1 className="mb-14 text-3xl font-medium text-richblack-5">
+      <h1 className="mb-14 ml-16 md:ml-10 text-3xl font-medium text-richblack-5">
         My Profile
       </h1>
       <div className="flex max-sm:flex-wrap max-sm:gap-3 items-center justify-between rounded-md border-[1px] border-richblack-700 bg-richblack-800 p-8 px-12">

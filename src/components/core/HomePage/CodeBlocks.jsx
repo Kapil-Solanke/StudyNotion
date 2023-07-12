@@ -43,9 +43,6 @@ const CodeBlocks = ({
                 <p>9</p>
                 <p>10</p>
                 <p>11</p>
-                <p>12</p>
-                <p>13</p>
-                <p>14</p>
             </div>
             <div className={`${codeColor} pr-2  flex flex-col gap-2 w-[90%] text-richblack-400 font-mono  font-bold`}>
             <TypeAnimation

@@ -15,7 +15,7 @@ const About = () => {
   return (
     <div>
       <section className="bg-richblack-700">
-        <div className="  mx-auto  flex w-11/12 max-w-maxContent flex-col justify-between gap-10 text-center text-white">
+        <div className=" relative mx-auto  flex w-11/12 max-w-maxContent flex-col justify-between gap-10 text-center text-white">
         {/* <div className='text-center  text-richblack-300 my-10'>About Us</div> */}
           <header className="mx-auto    py-20 text-4xl font-semibold lg:w-[70%]">
             Driving Innovation in Online Education for a
@@ -28,7 +28,7 @@ const About = () => {
             </p>
           </header>
           <div className="sm:h-[70px]  lg:h-[150px]"></div>
-          <div className="absolute bottom-0   sm:left-[50%] grid max-w-full sm:translate-x-[-50%] sm:translate-y-[30%] grid-cols-3 gap-3 lg:gap-5">
+          <div className="absolute bottom-0   sm:left-[50%] w-full grid max-w-full sm:translate-x-[-50%] sm:translate-y-[30%] grid-cols-3 gap-3 lg:gap-5">
             <img src={BannerImage1} alt="" className="" />
             <img src={BannerImage2} alt="" className="" />
             <img src={BannerImage3} alt="" className="" />
